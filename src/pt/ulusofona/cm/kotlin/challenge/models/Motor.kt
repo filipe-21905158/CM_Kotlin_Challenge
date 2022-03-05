@@ -1,0 +1,31 @@
+package pt.ulusofona.cm.kotlin.challenge.models
+
+import pt.ulusofona.cm.kotlin.challenge.execptions.VeiculoDesligadoException
+import pt.ulusofona.cm.kotlin.challenge.execptions.VeiculoLigadoException
+import pt.ulusofona.cm.kotlin.challenge.interfaces.Ligavel
+
+class Motor(var cavalos: Int, var cilindrada: Int, var ligado: Boolean) : Ligavel {
+    constructor(cavalos: Int, cilindrada: Int): this(cavalos, cilindrada ,false)
+
+    override fun ligar() {
+        if (ligado) {
+            throw VeiculoLigadoException("")
+        }
+        ligado = true
+    }
+
+    override fun desligar() {
+        if (!ligado) {
+            throw VeiculoDesligadoException("")
+        }
+        ligado = false
+    }
+
+    override fun estaLigado(): Boolean {
+        return ligado
+    }
+
+    override fun toString(): String {
+        return "Motor | $cavalos | $cilindrada"
+    }
+}
