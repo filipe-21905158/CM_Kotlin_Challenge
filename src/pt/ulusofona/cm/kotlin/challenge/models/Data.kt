@@ -2,17 +2,29 @@ package pt.ulusofona.cm.kotlin.challenge.models
 
 import java.time.LocalDate
 import java.time.Period
+import java.time.format.DateTimeFormatter
+import java.util.*
 
-class Data(val dia : Int, val mes : Int, val ano : Int) {
+class Data {
+    companion object {
+        private fun converterLocalDate(data : Date) : LocalDate {
+            val c1 = Calendar.getInstance()
+            c1.time = data
 
-    fun diferencaParaAtualidade() : Int {
-        val d1 : LocalDate = LocalDate.of(ano, mes, dia)
-        val d2 : LocalDate = LocalDate.now()
+            return LocalDate.of(c1.get(Calendar.YEAR), c1.get(Calendar.MONTH)+1, c1.get(Calendar.DAY_OF_MONTH))
+        }
 
-        return Period.between(d1, d2).years
-    }
+        fun diferencaParaAtualidade(data : Date) : Int {
+            val d1 = converterLocalDate(data)
+            val d2 = LocalDate.now()
 
-    override fun toString(): String {
-        return "%02d-%02d-%04d".format(dia, mes, ano)
+            return Period.between(d1, d2).years
+        }
+
+        fun formatar(data : Date): String {
+            val d1 = converterLocalDate(data)
+
+            return d1.format(DateTimeFormatter.ofPattern("dd-MM-yyyy"))
+        }
     }
 }

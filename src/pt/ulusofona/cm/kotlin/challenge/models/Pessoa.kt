@@ -1,13 +1,14 @@
 package pt.ulusofona.cm.kotlin.challenge.models
 
-import pt.ulusofona.cm.kotlin.challenge.execptions.MenorDeIdadeException
-import pt.ulusofona.cm.kotlin.challenge.execptions.PessoaSemCartaException
-import pt.ulusofona.cm.kotlin.challenge.execptions.VeiculoNaoEncontradoException
+import pt.ulusofona.cm.kotlin.challenge.exceptions.MenorDeIdadeException
+import pt.ulusofona.cm.kotlin.challenge.exceptions.PessoaSemCartaException
+import pt.ulusofona.cm.kotlin.challenge.exceptions.VeiculoNaoEncontradoException
 import pt.ulusofona.cm.kotlin.challenge.interfaces.Movimentavel
+import java.util.*
 
-class Pessoa(var nome: String, var veiculos: MutableList<Veiculo>, var dataDeNascimento: Data, var carta: Carta?, var posicao: Posicao) : Movimentavel {
+class Pessoa(var nome: String, var veiculos: MutableList<Veiculo>, var dataDeNascimento: Date, var carta: Carta?, var posicao: Posicao) : Movimentavel {
 
-    constructor(nome: String, dataDeNascimento: Data): this(nome, mutableListOf(), dataDeNascimento, null, Posicao(0,0) )
+    constructor(nome: String, dataDeNascimento: Date): this(nome, mutableListOf(), dataDeNascimento, null, Posicao(0,0) )
 
     fun comprarVeiculo(veiculo: Veiculo){
         veiculos.add(veiculo)
@@ -44,7 +45,7 @@ class Pessoa(var nome: String, var veiculos: MutableList<Veiculo>, var dataDeNas
     }
 
     fun tirarCarta(){
-        val idade = dataDeNascimento.diferencaParaAtualidade()
+        val idade = Data.diferencaParaAtualidade(dataDeNascimento)
 
         if (idade > 18) {
             carta = Carta()
@@ -55,7 +56,7 @@ class Pessoa(var nome: String, var veiculos: MutableList<Veiculo>, var dataDeNas
     }
 
     override fun toString(): String {
-        return "Pessoa | $nome | Posicao | $dataDeNascimento | x:${posicao.x} | y:${posicao.y}"
+        return "Pessoa | $nome | Posicao | ${Data.formatar(dataDeNascimento)} | x:${posicao.x} | y:${posicao.y}"
     }
 
     override fun moverPara(x: Int, y: Int) {
