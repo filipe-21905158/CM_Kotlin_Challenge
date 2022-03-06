@@ -14,7 +14,7 @@ class Pessoa(var nome: String, var veiculos: MutableList<Veiculo>, var dataDeNas
         veiculos.add(veiculo)
     }
 
-    fun pesquisaVeiculo(identificador: String): Veiculo {
+    fun pesquisarVeiculo(identificador: String): Veiculo {
         for (veiculo in veiculos){
             if (veiculo.identificador == identificador){
                 return veiculo
@@ -24,13 +24,13 @@ class Pessoa(var nome: String, var veiculos: MutableList<Veiculo>, var dataDeNas
     }
 
     fun venderVeiculo(identificador: String, comprador: Pessoa){
-        val veiculo = pesquisaVeiculo(identificador)
+        val veiculo = pesquisarVeiculo(identificador)
         comprador.comprarVeiculo(veiculo)
         veiculos.remove(veiculo)
     }
 
     fun moverVeiculoPara(identificador: String, x: Int, y:Int)  {
-        val veiculo = pesquisaVeiculo(identificador)
+        val veiculo = pesquisarVeiculo(identificador)
 
         if (veiculo.requerCarta() && !temCarta()) {
             throw PessoaSemCartaException("$nome não tem carta para conduzir o veículo indicado")
