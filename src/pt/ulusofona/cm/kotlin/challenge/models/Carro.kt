@@ -8,9 +8,9 @@ class Carro(identificador: String, var motor: Motor): Veiculo(identificador), Li
     }
 
     override fun moverPara(x: Int, y: Int) {
-        if (estaLigado()) {
-            posicao.alterarPosicao(x, y)
-        }
+        ligar()
+        posicao.alterarPosicao(x, y)
+        desligar()
     }
 
     override fun ligar() {
