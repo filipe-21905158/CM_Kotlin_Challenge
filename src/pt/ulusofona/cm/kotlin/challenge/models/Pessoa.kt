@@ -57,7 +57,7 @@ class Pessoa(var nome: String, var veiculos: MutableList<Veiculo>, var dataDeNas
     }
 
     override fun toString(): String {
-        return "Pessoa | $nome | Posicao | ${Data.formatar(dataDeNascimento)} | x:${posicao.x} | y:${posicao.y}"
+        return "Pessoa | $nome | ${Data.formatar(dataDeNascimento)} | $posicao"
     }
 
     override fun moverPara(x: Int, y: Int) {
