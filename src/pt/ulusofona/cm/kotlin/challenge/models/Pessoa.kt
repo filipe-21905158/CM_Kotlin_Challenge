@@ -27,6 +27,7 @@ class Pessoa(var nome: String, var veiculos: MutableList<Veiculo>, var dataDeNas
         val veiculo = pesquisarVeiculo(identificador)
         comprador.comprarVeiculo(veiculo)
         veiculos.remove(veiculo)
+        veiculo.dataDeAquisicao = Date()
     }
 
     fun moverVeiculoPara(identificador: String, x: Int, y:Int)  {
