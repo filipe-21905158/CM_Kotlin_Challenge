@@ -52,16 +52,16 @@ class Pessoa(
     }
 
     fun tirarCarta() {
-        val dataAtual =  LocalDate.now()
-        val dataNascimento = LocalDate.of(dataDeNascimento._ano, dataDeNascimento._mes, dataDeNascimento._dia)
-
-        try {
-            if (Period.between(dataNascimento, dataAtual).years >= 18) {
-                carta =  Carta()
-            }
-        }catch (e: MenorDeIdadeException) {
-            throw MenorDeIdadeException()
-        }
+//        val dataAtual =  LocalDate.now()
+//        val dataNascimento = LocalDate.of(dataDeNascimento._ano, dataDeNascimento._mes, dataDeNascimento._dia)
+//
+//        try {
+//            if (Period.between(dataNascimento, dataAtual).years >= 18) {
+//                carta =  Carta()
+//            }
+//        }catch (e: MenorDeIdadeException) {
+//            throw MenorDeIdadeException()
+//        }
 
 
     }
