@@ -2,8 +2,7 @@ package pt.ulusofona.cm.kotlin.challenge.models
 
 import pt.ulusofona.cm.kotlin.challenge.exceptions.MenorDeIdadeException
 import pt.ulusofona.cm.kotlin.challenge.exceptions.VeiculoNaoEncontradoException
-import java.time.LocalDate
-import java.time.Period
+
 
 class Pessoa(
     val nome: String,
