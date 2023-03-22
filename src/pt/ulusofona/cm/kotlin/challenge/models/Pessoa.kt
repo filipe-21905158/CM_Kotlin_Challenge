@@ -2,11 +2,13 @@ package pt.ulusofona.cm.kotlin.challenge.models
 
 import pt.ulusofona.cm.kotlin.challenge.exceptions.MenorDeIdadeException
 import pt.ulusofona.cm.kotlin.challenge.exceptions.VeiculoNaoEncontradoException
-
+import java.time.LocalDate
+import java.time.Period
+import java.util.Date
 
 class Pessoa(
     val nome: String,
-    val dataDeNascimento: Data
+    val dataDeNascimento: Date
 ) {
 
     var veiculos: List<Veiculo> = mutableListOf()
@@ -51,16 +53,17 @@ class Pessoa(
     }
 
     fun tirarCarta() {
-//        val dataAtual =  LocalDate.now()
-//        val dataNascimento = LocalDate.of(dataDeNascimento._ano, dataDeNascimento._mes, dataDeNascimento._dia)
-//
-//        try {
-//            if (Period.between(dataNascimento, dataAtual).years >= 18) {
-//                carta =  Carta()
-//            }
-//        }catch (e: MenorDeIdadeException) {
-//            throw MenorDeIdadeException()
-//        }
+        val dataAtual =  LocalDate.now()
+        //val dataNascimento = LocalDate.of(dataDeNascimento._ano, dataDeNascimento._mes, dataDeNascimento._dia)
+        val dataNascimento = LocalDate.of(dataDeNascimento.year, dataDeNascimento.month, dataDeNascimento.day)
+
+        try {
+            if (Period.between(dataNascimento, dataAtual).years >= 18) {
+                carta =  Carta()
+            }
+        }catch (e: MenorDeIdadeException) {
+            throw MenorDeIdadeException()
+        }
 
 
     }
