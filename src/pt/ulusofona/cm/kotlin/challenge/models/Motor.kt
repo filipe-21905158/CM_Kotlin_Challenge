@@ -19,6 +19,6 @@ class Motor(val cavalos: Int, val cilindrada: Int, var ligado: Boolean) : Ligave
     }
 
     override fun toString(): String {
-        return "Carro | $cavalos | $cilindrada"
+        return "Motor | $cavalos | $cilindrada"
     }
 }
