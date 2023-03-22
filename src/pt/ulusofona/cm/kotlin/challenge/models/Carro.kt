@@ -1,6 +1,6 @@
-package models
+package pt.ulusofona.cm.kotlin.challenge.models
 
-import interfaces.Ligavel
+import pt.ulusofona.cm.kotlin.challenge.interfaces.Ligavel
 
 class Carro(identificador: String, var motor: Motor) : Veiculo(identificador), Ligavel {
     override fun requerCarta(): Boolean {

@@ -1,7 +1,5 @@
-package models
-import interfaces.Ligavel
-import interfaces.Movimentavel
-import java.util.Date
+package pt.ulusofona.cm.kotlin.challenge.models
+import pt.ulusofona.cm.kotlin.challenge.interfaces.Movimentavel
 
 abstract class Veiculo(
     private val _identificador: String,

@@ -1,4 +1,4 @@
-package models
+package pt.ulusofona.cm.kotlin.challenge.models
 
 class Data(var _dia: Int, var _mes: Int, var _ano: Int) {
 

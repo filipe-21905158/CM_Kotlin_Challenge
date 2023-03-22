@@ -1,7 +1,7 @@
-package models
+package pt.ulusofona.cm.kotlin.challenge.models
 
-import exceptions.MenorDeIdadeException
-import exceptions.VeiculoNaoEncontradoException
+import pt.ulusofona.cm.kotlin.challenge.exceptions.MenorDeIdadeException
+import pt.ulusofona.cm.kotlin.challenge.exceptions.VeiculoNaoEncontradoException
 import java.time.LocalDate
 import java.time.Period
 
@@ -18,7 +18,7 @@ class Pessoa(
     fun comprarVeiculo(veiculo: Veiculo) {
         try {
             pesquisarVeiculo(veiculo.identificador)
-        } catch (e:VeiculoNaoEncontradoException){
+        } catch (e: VeiculoNaoEncontradoException){
             veiculos = veiculos + veiculo
             println("Veiculos actuais: $veiculos")
         }
@@ -36,7 +36,7 @@ class Pessoa(
             val veiculo = pesquisarVeiculo(identificador)
             comprador.comprarVeiculo(veiculo)
             veiculos = veiculos - veiculo
-        } catch (_:VeiculoNaoEncontradoException) {}
+        } catch (_: VeiculoNaoEncontradoException) {}
         println("Veiculos actuais: $veiculos")
     }
 
@@ -44,7 +44,7 @@ class Pessoa(
         try {
             val veiculo = pesquisarVeiculo(identificador)
             veiculo.moverPara(x, y)
-        } catch (_:VeiculoNaoEncontradoException) {}
+        } catch (_: VeiculoNaoEncontradoException) {}
     }
 
     fun temCarta(): Boolean {
