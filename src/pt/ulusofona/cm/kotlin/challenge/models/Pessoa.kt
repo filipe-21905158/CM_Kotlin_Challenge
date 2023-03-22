@@ -61,6 +61,7 @@ class Pessoa(
 
         if (Period.between(dataNascimento, dataAtual).years >= 18) {
             carta =  Carta()
+            return
         }
 
         throw MenorDeIdadeException()
