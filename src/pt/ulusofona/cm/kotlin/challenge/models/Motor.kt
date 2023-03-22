@@ -18,7 +18,7 @@ class Motor(val cavalos: Int, val cilindrada: Int, var ligado: Boolean) : Ligave
 
     override fun desligar() {
 
-        if (ligado == false) {
+        if (ligado == true) {
             ligado = false
         } else {
             throw VeiculoDesligadoException()
