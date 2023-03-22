@@ -58,13 +58,13 @@ class Pessoa(
         //val dataNascimento = LocalDate.of(dataDeNascimento._ano, dataDeNascimento._mes, dataDeNascimento._dia)
         val dataNascimento = LocalDate.of(dataDeNascimento.year, dataDeNascimento.month + 1, dataDeNascimento.day)
 
-        try {
-            if (Period.between(dataNascimento, dataAtual).years >= 18) {
-                carta =  Carta()
-            }
-        }catch (e: MenorDeIdadeException) {
-            throw MenorDeIdadeException()
+
+        if (Period.between(dataNascimento, dataAtual).years >= 18) {
+            carta =  Carta()
         }
+
+        throw MenorDeIdadeException()
+
 
 
     }
