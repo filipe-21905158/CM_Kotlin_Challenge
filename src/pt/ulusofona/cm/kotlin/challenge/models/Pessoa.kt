@@ -10,9 +10,9 @@ class Pessoa(
     val dataDeNascimento: Data
 ) {
 
-    private var veiculos: List<Veiculo> = mutableListOf()
-    private var carta: Carta? = null
-    private val posicao: Posicao = Posicao(0,0)
+    var veiculos: List<Veiculo> = mutableListOf()
+    var carta: Carta? = null
+    val posicao: Posicao = Posicao(0,0)
 
 
     fun comprarVeiculo(veiculo: Veiculo) {
