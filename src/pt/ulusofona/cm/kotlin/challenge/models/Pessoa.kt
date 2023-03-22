@@ -69,7 +69,7 @@ class Pessoa(
     }
 
     override fun toString(): String {
-        return "Pessoa | $nome | $posicao"
+        return "Pessoa | $nome | $dataDeNascimento | $posicao"
     }
 
 }

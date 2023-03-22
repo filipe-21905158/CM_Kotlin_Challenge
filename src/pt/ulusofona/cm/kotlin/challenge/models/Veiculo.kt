@@ -1,13 +1,14 @@
 package pt.ulusofona.cm.kotlin.challenge.models
 import pt.ulusofona.cm.kotlin.challenge.interfaces.Movimentavel
+import java.util.Date
 
 abstract class Veiculo(
     val _identificador: String,
-    var _posicao: Posicao,
-    val dataDeAquisicao: Data
+
 ) : Movimentavel {
 
-    public constructor(identificador: String) : this(identificador, Posicao(0,0), Data(1,1, 2023))
+    var _posicao: Posicao = Posicao(0,0)
+    val dataDeAquisicao: Date = Date()
 
     val identificador get() = _identificador
     val posicao get() = _posicao
