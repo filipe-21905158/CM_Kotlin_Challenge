@@ -69,7 +69,7 @@ class Pessoa(
     }
 
     override fun toString(): String {
-        return "Pessoa | $nome | $dataDeNascimento | $posicao"
+        return "Pessoa | $nome | ${Data(dataDeNascimento.day, dataDeNascimento.month, dataDeNascimento.year)} | $posicao"
     }
 
 }
