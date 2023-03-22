@@ -1,8 +1,8 @@
 package pt.ulusofona.cm.kotlin.challenge.models
 
 class Posicao(
-    private var x: Int,
-    private var y: Int
+    var x: Int,
+    var y: Int
 ) {
 
     fun alterarPosicaoPara(x: Int, y: Int) {

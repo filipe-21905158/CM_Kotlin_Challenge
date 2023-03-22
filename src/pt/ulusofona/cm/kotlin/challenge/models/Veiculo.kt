@@ -2,9 +2,9 @@ package pt.ulusofona.cm.kotlin.challenge.models
 import pt.ulusofona.cm.kotlin.challenge.interfaces.Movimentavel
 
 abstract class Veiculo(
-    private val _identificador: String,
-    private var _posicao: Posicao,
-    private val dataDeAquisicao: Data
+    val _identificador: String,
+    var _posicao: Posicao,
+    val dataDeAquisicao: Data
 ) : Movimentavel {
 
     public constructor(identificador: String) : this(identificador, Posicao(0,0), Data(1,1, 2023))

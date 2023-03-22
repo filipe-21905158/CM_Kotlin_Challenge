@@ -6,8 +6,8 @@ import java.time.LocalDate
 import java.time.Period
 
 class Pessoa(
-    private val nome: String,
-    private val dataDeNascimento: Data
+    val nome: String,
+    val dataDeNascimento: Data
 ) {
 
     private var veiculos: List<Veiculo> = mutableListOf()
