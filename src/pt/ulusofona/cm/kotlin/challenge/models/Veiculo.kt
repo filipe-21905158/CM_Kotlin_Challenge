@@ -1,5 +1,6 @@
 package pt.ulusofona.cm.kotlin.challenge.models
 import pt.ulusofona.cm.kotlin.challenge.interfaces.Movimentavel
+import java.text.SimpleDateFormat
 import java.util.Date
 
 abstract class Veiculo(
@@ -16,7 +17,7 @@ abstract class Veiculo(
     abstract fun requerCarta(): Boolean
 
     override fun toString(): String {
-        return "$identificador | ${Data(dataDeAquisicao.day, dataDeAquisicao.month, dataDeAquisicao.year)} | $posicao"
+        return "$identificador | ${SimpleDateFormat("dd-MM-yyyy").format(dataDeAquisicao)} | $posicao"
     }
 
     override fun moverPara(x: Int, y: Int) {
