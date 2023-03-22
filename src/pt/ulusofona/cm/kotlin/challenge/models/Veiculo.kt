@@ -16,7 +16,7 @@ abstract class Veiculo(
     abstract fun requerCarta(): Boolean
 
     override fun toString(): String {
-        return "$identificador | $posicao | $dataDeAquisicao"
+        return "$identificador | ${Data(dataDeAquisicao.day, dataDeAquisicao.month, dataDeAquisicao.year)} | $posicao"
     }
 
     override fun moverPara(x: Int, y: Int) {
