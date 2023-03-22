@@ -2,6 +2,7 @@ package pt.ulusofona.cm.kotlin.challenge.models
 
 import pt.ulusofona.cm.kotlin.challenge.exceptions.MenorDeIdadeException
 import pt.ulusofona.cm.kotlin.challenge.exceptions.VeiculoNaoEncontradoException
+import java.text.SimpleDateFormat
 import java.time.LocalDate
 import java.time.Period
 import java.util.Date
@@ -69,7 +70,7 @@ class Pessoa(
     }
 
     override fun toString(): String {
-        return "Pessoa | $nome | ${Data(dataDeNascimento.day, dataDeNascimento.month, dataDeNascimento.year)} | $posicao"
+        return "Pessoa | $nome | ${SimpleDateFormat("dd-MM-yyyy").format(dataDeNascimento)} | $posicao"
     }
 
 }
