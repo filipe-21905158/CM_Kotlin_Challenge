@@ -1,6 +1,5 @@
 package pt.ulusofona.cm.kotlin.challenge.models
 import pt.ulusofona.cm.kotlin.challenge.exceptions.VeiculoDesligadoException
-import pt.ulusofona.cm.kotlin.challenge.interfaces.Ligavel
 
 class Carro(identificador: String, var motor: Motor) : Veiculo(identificador) {
     override fun requerCarta(): Boolean {
