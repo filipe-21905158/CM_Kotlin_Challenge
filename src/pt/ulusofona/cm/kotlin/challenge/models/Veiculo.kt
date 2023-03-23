@@ -1,4 +1,5 @@
 package pt.ulusofona.cm.kotlin.challenge.models
+import pt.ulusofona.cm.kotlin.challenge.exceptions.AlterarPosicaoException
 import pt.ulusofona.cm.kotlin.challenge.interfaces.Movimentavel
 import java.text.SimpleDateFormat
 import java.util.Date
@@ -23,6 +24,8 @@ abstract class Veiculo(
     override fun moverPara(newX: Int, newY: Int) {
         if (newX != posicao.x || newY != posicao.y ){
             posicao.alterarPosicaoPara(newX, newX)
+        } else {
+            throw AlterarPosicaoException()
         }
 
     }
