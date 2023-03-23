@@ -1,7 +1,9 @@
 package pt.ulusofona.cm.kotlin.challenge.models
 
+import pt.ulusofona.cm.kotlin.challenge.exceptions.AlterarPosicaoException
 import pt.ulusofona.cm.kotlin.challenge.exceptions.MenorDeIdadeException
 import pt.ulusofona.cm.kotlin.challenge.exceptions.VeiculoNaoEncontradoException
+import pt.ulusofona.cm.kotlin.challenge.interfaces.Movimentavel
 import java.text.SimpleDateFormat
 import java.time.LocalDate
 import java.time.Period
@@ -10,7 +12,7 @@ import java.util.Date
 class Pessoa(
     val nome: String,
     val dataDeNascimento: Date
-) {
+) : Movimentavel {
 
     var veiculos: List<Veiculo> = mutableListOf()
     var carta: Carta? = null
@@ -65,6 +67,14 @@ class Pessoa(
         }
 
         throw MenorDeIdadeException()
+    }
+
+    override fun moverPara(x: Int, y: Int) {
+        if (x != posicao.x || y != posicao.y ) {
+            posicao.alterarPosicaoPara(x, y)
+        } else {
+            throw AlterarPosicaoException()
+        }
     }
 
     override fun toString(): String {

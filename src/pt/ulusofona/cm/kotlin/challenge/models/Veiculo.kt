@@ -22,12 +22,10 @@ abstract class Veiculo(
     }
 
     override fun moverPara(x: Int, y: Int) {
-
         if (x != posicao.x || y != posicao.y ) {
             posicao.alterarPosicaoPara(x, y)
         } else {
             throw AlterarPosicaoException()
         }
-
     }
 }
