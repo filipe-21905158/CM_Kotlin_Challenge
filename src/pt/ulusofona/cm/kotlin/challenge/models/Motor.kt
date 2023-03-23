@@ -6,19 +6,17 @@ import pt.ulusofona.cm.kotlin.challenge.interfaces.Ligavel
 
 class Motor(val cavalos: Int, val cilindrada: Int, var ligado: Boolean = false) : Ligavel {
 
-    public constructor(cavalos: Int, cilindrada: Int) : this(cavalos, cilindrada, false)
-
     override fun ligar() {
-        if(ligado == false) {
+        if(estaLigado()) {
             ligado = true
-        } else {
-            throw VeiculoLigadoException()
+            return
         }
+        throw VeiculoLigadoException()
     }
 
     override fun desligar() {
 
-        if (ligado == true) {
+        if (estaLigado()) {
             ligado = false
             return
         }
