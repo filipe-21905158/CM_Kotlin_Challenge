@@ -65,9 +65,6 @@ class Pessoa(
         }
 
         throw MenorDeIdadeException()
-
-
-
     }
 
     override fun toString(): String {

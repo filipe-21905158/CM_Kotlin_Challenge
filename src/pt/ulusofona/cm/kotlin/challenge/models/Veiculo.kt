@@ -20,7 +20,10 @@ abstract class Veiculo(
         return "$identificador | ${SimpleDateFormat("dd-MM-yyyy").format(dataDeAquisicao)} | $posicao"
     }
 
-    override fun moverPara(x: Int, y: Int) {
-        posicao.alterarPosicaoPara(x, y)
+    override fun moverPara(newX: Int, newY: Int) {
+        if (newX != posicao.x || newY != posicao.y ){
+            posicao.alterarPosicaoPara(newX, newX)
+        }
+
     }
 }
