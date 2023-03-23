@@ -20,6 +20,7 @@ class Motor(val cavalos: Int, val cilindrada: Int, var ligado: Boolean = false) 
 
         if (ligado == true) {
             ligado = false
+            return
         }
         throw VeiculoDesligadoException()
 
