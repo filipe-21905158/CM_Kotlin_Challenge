@@ -6,13 +6,6 @@ class Carro(identificador: String, var motor: Motor) : Veiculo(identificador) {
         return true
     }
 
-    override fun moverPara(x: Int, y: Int) {
-        if(motor.estaLigado()){
-            super.moverPara(x, y)
-        }
-    }
-
-
     override fun toString(): String {
         return "Carro | ${super.toString()}"
     }
