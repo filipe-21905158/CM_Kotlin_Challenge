@@ -34,6 +34,7 @@ class Pessoa(
 
     fun venderVeiculo(identificador: String, comprador: Pessoa) {
 
+        if (this == comprador) return
 
         try {
             val veiculo = pesquisarVeiculo(identificador)
