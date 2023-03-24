@@ -73,15 +73,7 @@ class Pessoa(
 
     fun tirarCarta() {
         val dataAtual =  LocalDate.now()
-        //val dataNascimento = LocalDate.of(dataDeNascimento._ano, dataDeNascimento._mes, dataDeNascimento._dia)
-        //val dataNascimento = LocalDate.of(dataDeNascimento.year, dataDeNascimento.month+1, dataDeNascimento.day)
-        val dataNascimento = dataDeNascimento.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
-
-
-//        if (Period.between(dataNascimento, dataAtual).years >= 18) {
-//            carta =  Carta()
-//            return
-//        }
+        val dataNascimento = dataDeNascimento.toInstant().atZone(ZoneId.systemDefault()).toLocalDate()
 
         if (ChronoUnit.YEARS.between(dataNascimento, LocalDate.now()).toInt() >= 18) {
             carta =  Carta()
