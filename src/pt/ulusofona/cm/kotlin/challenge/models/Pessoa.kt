@@ -9,6 +9,7 @@ import java.text.SimpleDateFormat
 import java.time.LocalDate
 import java.time.Period
 import java.util.Date
+import kotlin.reflect.typeOf
 
 class Pessoa(
     val nome: String,
@@ -47,14 +48,21 @@ class Pessoa(
 
     fun moverVeiculoPara(identificador: String, x: Int, y: Int) {
         try {
-            if (carta != null){
-                val veiculo = pesquisarVeiculo(identificador)
+            val veiculo = pesquisarVeiculo(identificador)
+
+            if (veiculo is Bicicleta) {
+                veiculo.moverPara(x, y)
+                return
+            }
+
+            if (veiculo is Carro && carta != null) {
                 veiculo.moverPara(x, y)
                 return
             }
             throw PessoaSemCartaException()
 
-        } catch (_: VeiculoNaoEncontradoException) {}
+        } catch (_: VeiculoNaoEncontradoException) { }
+
     }
 
     fun temCarta(): Boolean {
