@@ -59,7 +59,7 @@ class Pessoa(
                 veiculo.moverPara(x, y)
                 return
             }
-            throw PessoaSemCartaException()
+            throw PessoaSemCartaException("$nome${toString()}")
 
         } catch (_: VeiculoNaoEncontradoException) { }
 
