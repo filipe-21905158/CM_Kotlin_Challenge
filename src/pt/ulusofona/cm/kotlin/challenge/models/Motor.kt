@@ -7,7 +7,7 @@ import pt.ulusofona.cm.kotlin.challenge.interfaces.Ligavel
 class Motor(val cavalos: Int, val cilindrada: Int, var ligado: Boolean = false) : Ligavel {
 
     override fun ligar() {
-        if(estaLigado() == false) {
+        if(!estaLigado()) {
             ligado = true
             return
         }
@@ -16,8 +16,9 @@ class Motor(val cavalos: Int, val cilindrada: Int, var ligado: Boolean = false) 
 
     override fun desligar() {
 
-        if (estaLigado() == true) {
+        if (estaLigado()) {
             ligado = false
+            return
         }
         throw VeiculoDesligadoException()
 

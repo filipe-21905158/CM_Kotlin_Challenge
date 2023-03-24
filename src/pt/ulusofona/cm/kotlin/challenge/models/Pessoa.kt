@@ -51,17 +51,13 @@ class Pessoa(
     fun moverVeiculoPara(identificador: String, x: Int, y: Int) {
         try {
             val veiculo = pesquisarVeiculo(identificador)
+            println(veiculo)
 
-            if (veiculo is Bicicleta) {
-                veiculo.moverPara(x, y)
-                return
+            if (veiculo is Carro && carta == null) {
+                throw PessoaSemCartaException("$nome não tem carta para conduzir o veículo indicado")
             }
 
-            if (veiculo is Carro && carta != null) {
-                veiculo.moverPara(x, y)
-                return
-            }
-            throw PessoaSemCartaException("$nome não tem carta para conduzir o veículo indicado")
+            veiculo.moverPara(x, y)
 
         } catch (_: VeiculoNaoEncontradoException) { }
 

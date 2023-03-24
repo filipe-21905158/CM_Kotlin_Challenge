@@ -8,10 +8,12 @@ class Carro(identificador: String, var motor: Motor) : Veiculo(identificador), L
     }
 
     override fun moverPara(x: Int, y: Int) {
-        if(estaLigado()){
-            super.moverPara(x, y)
-            desligar()
+        if(!estaLigado()){
+            ligar()
         }
+        println("Estado igual a: ${motor.estaLigado()}")
+        super.moverPara(x, y)
+        desligar()
     }
 
     override fun ligar() {
