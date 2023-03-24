@@ -2,6 +2,7 @@ package pt.ulusofona.cm.kotlin.challenge.models
 
 import pt.ulusofona.cm.kotlin.challenge.exceptions.AlterarPosicaoException
 import pt.ulusofona.cm.kotlin.challenge.exceptions.MenorDeIdadeException
+import pt.ulusofona.cm.kotlin.challenge.exceptions.PessoaSemCartaException
 import pt.ulusofona.cm.kotlin.challenge.exceptions.VeiculoNaoEncontradoException
 import pt.ulusofona.cm.kotlin.challenge.interfaces.Movimentavel
 import java.text.SimpleDateFormat
@@ -46,8 +47,13 @@ class Pessoa(
 
     fun moverVeiculoPara(identificador: String, x: Int, y: Int) {
         try {
-            val veiculo = pesquisarVeiculo(identificador)
-            veiculo.moverPara(x, y)
+            if (carta != null){
+                val veiculo = pesquisarVeiculo(identificador)
+                veiculo.moverPara(x, y)
+                return
+            }
+            throw PessoaSemCartaException()
+
         } catch (_: VeiculoNaoEncontradoException) {}
     }
 
@@ -58,7 +64,7 @@ class Pessoa(
     fun tirarCarta() {
         val dataAtual =  LocalDate.now()
         //val dataNascimento = LocalDate.of(dataDeNascimento._ano, dataDeNascimento._mes, dataDeNascimento._dia)
-        val dataNascimento = LocalDate.of(dataDeNascimento.year, dataDeNascimento.month, dataDeNascimento.day)
+        val dataNascimento = LocalDate.of(dataDeNascimento.year, dataDeNascimento.month+1, dataDeNascimento.day)
 
 
         if (Period.between(dataNascimento, dataAtual).years >= 18) {
