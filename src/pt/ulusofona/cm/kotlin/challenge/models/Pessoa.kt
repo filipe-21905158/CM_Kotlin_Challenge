@@ -28,7 +28,6 @@ class Pessoa(
             pesquisarVeiculo(veiculo.identificador)
         } catch (e: VeiculoNaoEncontradoException){
             veiculos = veiculos + veiculo
-            println("Veiculos actuais: $veiculos")
         }
     }
 
@@ -45,15 +44,13 @@ class Pessoa(
             comprador.comprarVeiculo(veiculo)
             veiculos = veiculos - veiculo
         } catch (_: VeiculoNaoEncontradoException) {}
-        println("Veiculos actuais: $veiculos")
     }
 
     fun moverVeiculoPara(identificador: String, x: Int, y: Int) {
         try {
             val veiculo = pesquisarVeiculo(identificador)
-            println(veiculo)
 
-            if (veiculo is Carro && carta == null) {
+            if (veiculo.requerCarta() && !temCarta()) {
                 throw PessoaSemCartaException("$nome não tem carta para conduzir o veículo indicado")
             }
 
@@ -68,7 +65,6 @@ class Pessoa(
     }
 
     fun tirarCarta() {
-        val dataAtual =  LocalDate.now()
         val dataNascimento = dataDeNascimento.toInstant().atZone(ZoneId.systemDefault()).toLocalDate()
 
         if (ChronoUnit.YEARS.between(dataNascimento, LocalDate.now()).toInt() >= 18) {

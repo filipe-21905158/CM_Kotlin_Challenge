@@ -22,7 +22,6 @@ abstract class Veiculo(
     }
 
     override fun moverPara(x: Int, y: Int) {
-        println(x != posicao.x || y != posicao.y)
         if (x != posicao.x || y != posicao.y ) {
             posicao.alterarPosicaoPara(x, y)
             return

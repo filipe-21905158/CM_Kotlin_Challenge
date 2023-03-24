@@ -11,7 +11,6 @@ class Carro(identificador: String, var motor: Motor) : Veiculo(identificador), L
         if(!estaLigado()){
             ligar()
         }
-        println("Estado igual a: ${motor.estaLigado()}")
         super.moverPara(x, y)
         desligar()
     }
