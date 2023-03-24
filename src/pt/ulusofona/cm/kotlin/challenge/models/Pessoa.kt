@@ -75,7 +75,7 @@ class Pessoa(
         val dataNascimento = LocalDate.of(dataDeNascimento.year, dataDeNascimento.month+1, dataDeNascimento.day)
 
 
-        if (Period.between(dataNascimento, dataAtual).years > 18) {
+        if (Period.between(dataNascimento, dataAtual).years >= 18) {
             carta =  Carta()
             return
         }
