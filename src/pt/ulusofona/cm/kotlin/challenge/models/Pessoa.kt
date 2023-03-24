@@ -8,6 +8,7 @@ import pt.ulusofona.cm.kotlin.challenge.interfaces.Movimentavel
 import java.text.SimpleDateFormat
 import java.time.LocalDate
 import java.time.Period
+import java.time.temporal.ChronoUnit
 import java.util.Date
 import kotlin.reflect.typeOf
 
@@ -75,7 +76,12 @@ class Pessoa(
         val dataNascimento = LocalDate.of(dataDeNascimento.year, dataDeNascimento.month+1, dataDeNascimento.day)
 
 
-        if (Period.between(dataNascimento, dataAtual).years >= 18) {
+//        if (Period.between(dataNascimento, dataAtual).years >= 18) {
+//            carta =  Carta()
+//            return
+//        }
+
+        if (ChronoUnit.YEARS.between(dataNascimento, LocalDate.now()).toInt() >= 18) {
             carta =  Carta()
             return
         }

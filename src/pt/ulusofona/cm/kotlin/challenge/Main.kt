@@ -5,7 +5,9 @@ import pt.ulusofona.cm.kotlin.challenge.models.Carta
 import pt.ulusofona.cm.kotlin.challenge.models.Motor
 import pt.ulusofona.cm.kotlin.challenge.models.Pessoa
 import java.time.LocalDate
+import java.time.LocalDateTime
 import java.time.Period
+import java.time.temporal.ChronoUnit
 import java.util.Date
 
 
@@ -18,9 +20,12 @@ fun main() {
     println(newCar.motor.ligar())
     println(newCar.motor.estaLigado())*/
 
-    /*val dataAtual =  LocalDate.now()
+    val agora = LocalDate.now()
+
+    val dataAtual =  LocalDate.of(agora.year, agora.month, agora.dayOfMonth, )
     //val dataNascimento = LocalDate.of(dataDeNascimento._ano, dataDeNascimento._mes, dataDeNascimento._dia)
     val dataNascimento = LocalDate.of(2003, 3, 23)
-    println(Period.between(dataNascimento, dataAtual).years)*/
+    //println(Period.between(dataNascimento, dataAtual).years)
+    println(ChronoUnit.YEARS.between(dataNascimento, LocalDate.now()).toInt())
 }
 
