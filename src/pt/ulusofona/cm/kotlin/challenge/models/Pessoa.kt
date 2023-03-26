@@ -18,7 +18,7 @@ class Pessoa(
     val dataDeNascimento: Date
 ) : Movimentavel {
 
-    private var veiculos: List<Veiculo> = mutableListOf()
+    var veiculos: List<Veiculo> = mutableListOf()
     var carta: Carta? = null
     val posicao: Posicao = Posicao(0,0)
 
