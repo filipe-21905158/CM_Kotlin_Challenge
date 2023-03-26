@@ -53,7 +53,7 @@ class Pessoa(
             if (veiculo.requerCarta() && !temCarta()) {
                 throw PessoaSemCartaException("$nome não tem carta para conduzir o veículo indicado")
             }
-
+            moverPara(x, y)
             veiculo.moverPara(x, y)
 
         } catch (_: VeiculoNaoEncontradoException) { }
