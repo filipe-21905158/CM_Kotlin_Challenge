@@ -29,14 +29,15 @@ fun main() {
     pessoa1.tirarCarta()
     pessoa1.venderVeiculo("12345", pessoa2)
 
-    println(pessoa1.veiculos)
-    println(pessoa2.veiculos)
+    //println(pessoa1.veiculos)
+    //println(pessoa2.veiculos)
 
-    for (v in pessoa1.veiculos) {
-        pessoa1.moverVeiculoPara(v.identificador, 3, 3)
-    }
+    pessoa2.comprarVeiculo(pessoa1.pesquisarVeiculo("56789"))
 
-    println(pessoa1.veiculos)
+    println()
+    //println(pessoa1.veiculos)
+    //println(pessoa2.veiculos)
+
 
     val agora = LocalDate.now()
     val dataAtual =  LocalDate.of(agora.year, agora.month, agora.dayOfMonth, )
